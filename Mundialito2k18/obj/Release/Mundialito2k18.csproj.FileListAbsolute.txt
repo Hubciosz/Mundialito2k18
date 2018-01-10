@@ -1,1 +1,14 @@
 C:\Users\jjhz24\Documents\Visual Studio 2012\Projects\Mundialito2k18\Mundialito2k18\bin\Release\Mundialito2k18.exe.config
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\bin\Release\Mundialito2k18.exe.config
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\bin\Release\Mundialito2k18.exe
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\bin\Release\Mundialito2k18.pdb
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\MainWindow.baml
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\MainWindow.g.cs
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\App.g.cs
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\Mundialito2k18_MarkupCompile.cache
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\Mundialito2k18.g.resources
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\Mundialito2k18.Properties.Resources.resources
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\Mundialito2k18.csproj.GenerateResource.Cache
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\Mundialito2k18.csproj.CoreCompileInputs.cache
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\Mundialito2k18.exe
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Release\Mundialito2k18.pdb

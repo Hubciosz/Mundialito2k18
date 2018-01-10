@@ -10,3 +10,17 @@ c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csproj.GenerateResource.Cache
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.exe
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.pdb
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\bin\Debug\Mundialito2k18.exe.config
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\bin\Debug\Mundialito2k18.exe
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\bin\Debug\Mundialito2k18.pdb
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csprojResolveAssemblyReference.cache
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\MainWindow.baml
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\MainWindow.g.cs
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\App.g.cs
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18_MarkupCompile.cache
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.g.resources
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.Properties.Resources.resources
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csproj.GenerateResource.Cache
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csproj.CoreCompileInputs.cache
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.exe
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.pdb
