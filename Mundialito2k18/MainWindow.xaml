@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Mundial 2018" Height="350" Width="525">
     <Grid>
-        <Grid x:Name="GridGroupTable" Margin="10,150,0,0" Width="250" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid x:Name="GridGroupTable" Margin="10,150,0,0" Width="280" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
@@ -15,26 +15,32 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="190"/>
                 <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" Grid.Row="0" Background="Silver" />
             <Border Grid.Column="1" Grid.Row="0" Background="Silver" />
             <Border Grid.Column="2" Grid.Row="0" Background="Silver" />
+            <Border Grid.Column="3" Grid.Row="0" Background="Silver" />
 
             <Border Grid.Column="0" Grid.Row="1" Background="Green" />
             <Border Grid.Column="1" Grid.Row="1" Background="Green" />
             <Border Grid.Column="2" Grid.Row="1" Background="Green" />
+            <Border Grid.Column="3" Grid.Row="1" Background="Green" />
             
             <Border Grid.Column="0" Grid.Row="2" Background="Green" />
             <Border Grid.Column="1" Grid.Row="2" Background="Green" />
             <Border Grid.Column="2" Grid.Row="2" Background="Green" />
+            <Border Grid.Column="3" Grid.Row="2" Background="Green" />
 
             <Border Grid.Column="0" Grid.Row="3" Background="Red" />
             <Border Grid.Column="1" Grid.Row="3" Background="Red" />
             <Border Grid.Column="2" Grid.Row="3" Background="Red" />
+            <Border Grid.Column="3" Grid.Row="3" Background="Red" />
 
             <Border Grid.Column="0" Grid.Row="4" Background="Red" />
             <Border Grid.Column="1" Grid.Row="4" Background="Red" />
             <Border Grid.Column="2" Grid.Row="4" Background="Red" />
+            <Border Grid.Column="3" Grid.Row="4" Background="Red" />
 
             <Label x:Name="lblPositionHead" Content="L.p." Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblPosition1" Content="1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
@@ -42,17 +48,22 @@
             <Label x:Name="lblPosition3" Content="3" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblPosition4" Content="4" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
 
-            <Label x:Name="lblTeamHead" Content="Reprezentacja" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblTeamHead" Content="Reprezentacja" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblTeam1"    Content=""              Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblTeam2"    Content=""              Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblTeam3"    Content=""              Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblTeam4"    Content=""              Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+
+            <Image x:Name="imgFlag1"    Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Stretch="Fill"/>
+            <Image x:Name="imgFlag2"    Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Stretch="Fill"/>
+            <Image x:Name="imgFlag3"    Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Stretch="Fill"/>
+            <Image x:Name="imgFlag4"    Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Stretch="Fill"/>
             
-            <Label x:Name="lblPointsHead" Content="PKT" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
-            <Label x:Name="lblPKT1"    Content=""              Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
-            <Label x:Name="lblPKT2"    Content=""              Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
-            <Label x:Name="lblPKT3"    Content=""              Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
-            <Label x:Name="lblPKT4"    Content=""              Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblPointsHead" Content="PKT"        Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblPKT1"    Content=""              Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblPKT2"    Content=""              Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblPKT3"    Content=""              Grid.Column="3" Grid.Row="3" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblPKT4"    Content=""              Grid.Column="3" Grid.Row="4" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
         </Grid>
         
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="10,150,0,0" VerticalAlignment="Top" Width="31"/>
@@ -61,17 +72,23 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="10,240,0,0" VerticalAlignment="Top" Width="31"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="10,270,0,0" VerticalAlignment="Top" Width="31"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="40,150,0,0" VerticalAlignment="Top" Width="190"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="40,180,0,0" VerticalAlignment="Top" Width="190"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="40,210,0,0" VerticalAlignment="Top" Width="190"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="40,240,0,0" VerticalAlignment="Top" Width="190"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="40,270,0,0" VerticalAlignment="Top" Width="190"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="40,150,0,0" VerticalAlignment="Top" Width="220"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="40,180,0,0" VerticalAlignment="Top" Width="220"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="40,210,0,0" VerticalAlignment="Top" Width="220"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="40,240,0,0" VerticalAlignment="Top" Width="220"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="40,270,0,0" VerticalAlignment="Top" Width="220"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="230,150,0,0" VerticalAlignment="Top" Width="30"/>
+        <!--<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="230,150,0,0" VerticalAlignment="Top" Width="30"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="230,180,0,0" VerticalAlignment="Top" Width="30"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="230,210,0,0" VerticalAlignment="Top" Width="30"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="230,240,0,0" VerticalAlignment="Top" Width="30"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="230,270,0,0" VerticalAlignment="Top" Width="30"/>
-      
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="230,270,0,0" VerticalAlignment="Top" Width="30"/>-->
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="260,150,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="260,180,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="260,210,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="260,240,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="260,270,0,0" VerticalAlignment="Top" Width="30"/>
+
     </Grid>
 </Window>

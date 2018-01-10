@@ -14,6 +14,8 @@ namespace Mundialito2k18
         private int playersInd;
         
         public string Name { set; get; }
+        public string Flag { set; get; }
+
         public string Coach { set; get; }
         
         private Player [] players = new Player[playersNumber];

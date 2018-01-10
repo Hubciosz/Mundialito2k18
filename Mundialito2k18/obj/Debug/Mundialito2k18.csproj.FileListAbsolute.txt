@@ -1,7 +1,6 @@
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\bin\Debug\Mundialito2k18.exe.config
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\bin\Debug\Mundialito2k18.exe
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\bin\Debug\Mundialito2k18.pdb
-c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csprojResolveAssemblyReference.cache
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\MainWindow.baml
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\MainWindow.g.cs
 c:\users\jjhz24\documents\visual studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\App.g.cs

@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 using System.IO;
 
+
 namespace Mundialito2k18
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {        
         Team[] grA = new Team[4];
+
         public MainWindow()
         {
             string[] allTeams = File.ReadAllLines(@"./data/teams.dat");
@@ -30,6 +32,7 @@ namespace Mundialito2k18
             {
                 grA[i] = new Team();
                 grA[i].Name = allTeams[i];
+                grA[i].Flag = "pack://application:,,,/images/" + grA[i].Name + ".png";
                 string[] teamData = File.ReadAllLines(@"./data/Teams/" + grA[i].Name + ".dat");
                 for (int j = 0; j < (grA[i].PlayersNumber + 1); ++j)
                 {
@@ -52,6 +55,11 @@ namespace Mundialito2k18
             lblTeam2.Content = grA[1].Name;
             lblTeam3.Content = grA[2].Name;
             lblTeam4.Content = grA[3].Name;
+
+            imgFlag1.Source = new BitmapImage(new Uri(@grA[0].Flag));
+            imgFlag2.Source = new BitmapImage(new Uri(@grA[1].Flag));
+            imgFlag3.Source = new BitmapImage(new Uri(@grA[2].Flag));
+            imgFlag4.Source = new BitmapImage(new Uri(@grA[3].Flag));
         }
     }
 }
