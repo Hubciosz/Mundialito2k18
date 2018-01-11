@@ -24,3 +24,4 @@ D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\
 D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csproj.CoreCompileInputs.cache
 D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.exe
 D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.pdb
+C:\Users\jjhz24\Documents\Visual Studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csprojResolveAssemblyReference.cache
