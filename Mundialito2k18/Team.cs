@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Mundialito2k18
 {
@@ -14,8 +15,10 @@ namespace Mundialito2k18
         private int playersInd;
         
         public string Name { set; get; }
-        public string Flag { set; get; }
 
+        private BitmapImage flag;
+
+        public BitmapImage Flag { get => flag; set => flag = value; }
         public string Coach { set; get; }
         
         private Player [] players = new Player[playersNumber];

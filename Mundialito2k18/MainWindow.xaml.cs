@@ -32,7 +32,7 @@ namespace Mundialito2k18
             {
                 grA[i] = new Team();
                 grA[i].Name = allTeams[i];
-                grA[i].Flag = "pack://application:,,,/images/" + grA[i].Name + ".png";
+                grA[i].Flag = new BitmapImage(new Uri(@"pack://application:,,,/images/" + grA[i].Name + ".png"));
                 string[] teamData = File.ReadAllLines(@"./data/Teams/" + grA[i].Name + ".dat");
                 for (int j = 0; j < (grA[i].PlayersNumber + 1); ++j)
                 {
@@ -51,15 +51,10 @@ namespace Mundialito2k18
 
         private void InitializeContent()
         {
-            ChangeRowData(1, grA[0].Name, 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-            ChangeRowData(2, grA[1].Name, 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-            ChangeRowData(3, grA[2].Name, 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-            ChangeRowData(4, grA[3].Name, 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-
-            imgFlag1.Source = new BitmapImage(new Uri(@grA[0].Flag));
-            imgFlag2.Source = new BitmapImage(new Uri(@grA[1].Flag));
-            imgFlag3.Source = new BitmapImage(new Uri(@grA[2].Flag));
-            imgFlag4.Source = new BitmapImage(new Uri(@grA[3].Flag));
+            ChangeRowData(1, grA[0], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
+            ChangeRowData(2, grA[1], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
+            ChangeRowData(3, grA[2], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
+            ChangeRowData(4, grA[3], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
 
         }
 
@@ -141,16 +136,15 @@ namespace Mundialito2k18
             P       = 32,
             Bplus   = 64,
             Bminus  = 128,
-            Flag    = 256,  //Zaimplementuj to dalej
-            All     = 512
+            All     = 256
         }
 
-        private void ChangeRowData(int row, string Team, int PKT, int M, int W, int R, int P, int Bplus, int Bminus, ChangeMask mask)
+        private void ChangeRowData(int row, Team Tm, int PKT, int M, int W, int R, int P, int Bplus, int Bminus, ChangeMask mask)
         {
             switch (row)
             {
                 case 1:
-                    lblTeam1.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Team                 : lblTeam1.Content;
+                    lblTeam1.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Name              : lblTeam1.Content;
                     lblPKT1.Content     = (((mask & ChangeMask.PKT) != ChangeMask.None)     || ((mask & ChangeMask.All) != ChangeMask.None)) ? PKT.ToString()       : lblPKT1.Content;
                     lblM1.Content       = (((mask & ChangeMask.M) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? M.ToString()         : lblM1.Content;
                     lblW1.Content       = (((mask & ChangeMask.W) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? W.ToString()         : lblW1.Content;
@@ -158,10 +152,15 @@ namespace Mundialito2k18
                     lblP1.Content       = (((mask & ChangeMask.P) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? P.ToString()         : lblP1.Content;
                     lblBplus1.Content   = (((mask & ChangeMask.Bplus) != ChangeMask.None)   || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bplus.ToString()     : lblBplus1.Content;
                     lblBminus1.Content  = (((mask & ChangeMask.Bminus) != ChangeMask.None)  || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bminus.ToString()    : lblBminus1.Content;
+
+                    if(((mask & ChangeMask.Team) != ChangeMask.None) || ((mask & ChangeMask.All) != ChangeMask.None))
+                    {
+                        imgFlag1.Source = Tm.Flag;
+                    }
                     break;
 
                 case 2:
-                    lblTeam2.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Team                 : lblTeam2.Content;
+                    lblTeam2.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Name              : lblTeam2.Content;
                     lblPKT2.Content     = (((mask & ChangeMask.PKT) != ChangeMask.None)     || ((mask & ChangeMask.All) != ChangeMask.None)) ? PKT.ToString()       : lblPKT2.Content;
                     lblM2.Content       = (((mask & ChangeMask.M) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? M.ToString()         : lblM2.Content;
                     lblW2.Content       = (((mask & ChangeMask.W) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? W.ToString()         : lblW2.Content;
@@ -169,6 +168,11 @@ namespace Mundialito2k18
                     lblP2.Content       = (((mask & ChangeMask.P) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? P.ToString()         : lblP2.Content;
                     lblBplus2.Content   = (((mask & ChangeMask.Bplus) != ChangeMask.None)   || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bplus.ToString()     : lblBplus2.Content;
                     lblBminus2.Content  = (((mask & ChangeMask.Bminus) != ChangeMask.None)  || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bminus.ToString()    : lblBminus2.Content;
+
+                    if (((mask & ChangeMask.Team) != ChangeMask.None) || ((mask & ChangeMask.All) != ChangeMask.None))
+                    {
+                        imgFlag2.Source = Tm.Flag;
+                    }
                     break;
             }
 
