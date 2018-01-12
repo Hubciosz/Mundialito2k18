@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Mundialito2k18
 {
-    class Player
+    class Player : Person
     {
-        public enum position { GK, DF, MD, FW };
-        
-        public string Name { set; get; }
-        public int Number { set; get; }
-        public position Position { set; get; }
+        public enum Pos { GK, DF, MD, FW };
+
+        private uint _number;       //Numer zawodnika
+        private Pos _position;      //Pozycja na boisku
+        private string _club;       //Aktualny klub zawodnika
+
+        public uint Number { get => _number; set => _number = value; }
+        internal Pos Position { get => _position; set => _position = value; }
+        public string Club { get => _club; set => _club = value; }
     }
 }

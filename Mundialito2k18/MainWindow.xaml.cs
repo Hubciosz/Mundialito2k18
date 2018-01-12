@@ -30,19 +30,19 @@ namespace Mundialito2k18
             string[] allTeams = File.ReadAllLines(@"./data/teams.dat");
             for (int i = 0; i < allTeams.Length; ++i)
             {
-                grA[i] = new Team();
-                grA[i].Name = allTeams[i];
-                grA[i].Flag = new BitmapImage(new Uri(@"pack://application:,,,/images/" + grA[i].Name + ".png"));
-                string[] teamData = File.ReadAllLines(@"./data/Teams/" + grA[i].Name + ".dat");
-                for (int j = 0; j < (grA[i].PlayersNumber + 1); ++j)
-                {
-                    if (j == 0)
-                        grA[i].Coach = teamData[j];
-                    else
-                    {
-                        grA[i].addPlayer(teamData[j], j-1, Player.position.GK);
-                    }
-                }
+                //grA[i] = new Team();
+                //grA[i].Name = allTeams[i];
+                //grA[i].Flag = new BitmapImage(new Uri(@"pack://application:,,,/images/" + grA[i].Name + ".png"));
+                //string[] teamData = File.ReadAllLines(@"./data/Teams/" + grA[i].Name + ".dat");
+                //for (int j = 0; j < (grA[i].PlayersMaxNum + 1); ++j)
+                //{
+                //    if (j == 0)
+                //        grA[i].Coach = teamData[j];
+                //    else
+                //    {
+                //        grA[i].AddPlayer(teamData[j], j-1, Player.Pos.GK);
+                //    }
+                //}
             }
 
             InitializeComponent();
@@ -144,7 +144,7 @@ namespace Mundialito2k18
             switch (row)
             {
                 case 1:
-                    lblTeam1.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Name              : lblTeam1.Content;
+                    lblTeam1.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Country           : lblTeam1.Content;
                     lblPKT1.Content     = (((mask & ChangeMask.PKT) != ChangeMask.None)     || ((mask & ChangeMask.All) != ChangeMask.None)) ? PKT.ToString()       : lblPKT1.Content;
                     lblM1.Content       = (((mask & ChangeMask.M) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? M.ToString()         : lblM1.Content;
                     lblW1.Content       = (((mask & ChangeMask.W) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? W.ToString()         : lblW1.Content;
@@ -160,7 +160,7 @@ namespace Mundialito2k18
                     break;
 
                 case 2:
-                    lblTeam2.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Name              : lblTeam2.Content;
+                    lblTeam2.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Country           : lblTeam2.Content;
                     lblPKT2.Content     = (((mask & ChangeMask.PKT) != ChangeMask.None)     || ((mask & ChangeMask.All) != ChangeMask.None)) ? PKT.ToString()       : lblPKT2.Content;
                     lblM2.Content       = (((mask & ChangeMask.M) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? M.ToString()         : lblM2.Content;
                     lblW2.Content       = (((mask & ChangeMask.W) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? W.ToString()         : lblW2.Content;

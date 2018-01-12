@@ -53,7 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Match.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Referee.cs" />
     <Compile Include="Team.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

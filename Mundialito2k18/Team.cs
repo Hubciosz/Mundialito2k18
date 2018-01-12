@@ -9,85 +9,82 @@ namespace Mundialito2k18
 {
     class Team
     {
-        private const int playersNumber = 23;
-        public short PlayersNumber { get { return playersNumber; } }
+        private string _country;        //Nazwa państwa
+        private BitmapImage _flag;      //Obraz z miniaturką flagi
+        private Person _coach;          //Trener
+        private Player[] players;      //Piłkarze
 
-        private int playersInd;
-        
-        public string Name { set; get; }
+        private const int _playersMaxNum = 23;      //Maksymalna liczba piłkarzy w drużynie
+        private int playersActNum;                  //Aktualna liczba piłkarzy w drużynie
 
-        private BitmapImage flag;
+        public string Country { get => _country; }
+        public BitmapImage Flag { get => _flag; }
+        internal Person Coach { get => _coach; set => _coach = value; }
 
-        public BitmapImage Flag { get => flag; set => flag = value; }
-        public string Coach { set; get; }
-        
-        private Player [] players = new Player[playersNumber];
+        public static int PlayersMaxNum => _playersMaxNum;
 
-        public Team()
+        /*** KONSTRUKTORY ***/
+        public Team(string country, BitmapImage flag, Person coach)
         {
-            Name = "n/a";
-            Coach = "n/a";
-            playersInd = 0;
-            for (int i = 0; i < playersNumber; ++i)
-            {
-                players[i] = new Player();
-            }
+            _country = country;
+            _flag = flag;
+            _coach = coach;
+            players = new Player[PlayersMaxNum];
         }
 
-        public bool addPlayer(string name, int num, Player.position pos)
+        public Team(string country, BitmapImage flag, Person coach, Player [] pl)
         {
-            bool status;
+            _country = country;
+            _flag = flag;
+            _coach = coach;
+            players = new Player[PlayersMaxNum];
 
-            if (playersInd >= PlayersNumber)
-                status = false;
+            if (pl.Length > players.Length)
+            {
+                throw new Exception($"Podano {pl.Length.ToString()} zawodników. Maksymalna liczba zawodników w drużynie to {PlayersMaxNum.ToString()}.");
+            }
             else
             {
-                status = true;
-                players[playersInd].Name = name;
-                players[playersInd].Number = num;
-                players[playersInd].Position = pos;
-                playersInd++;
+                int i = 0;
+                for (i = 0; i < pl.Length; ++i)
+                {
+                    players[i] = pl[i];
+                }
+                playersActNum = i;
             }
-
-            return status;
         }
 
-        public bool changePlayer(int index, string name, int num, Player.position pos)
+        public void AddPlayer(Player pl)
         {
-            bool status;
-
-            if (index >= PlayersNumber)
-                status = false;
+            if(playersActNum >= PlayersMaxNum)
+            {
+                throw new Exception($"Aktualna liczba piłkarzy w drużynie: {playersActNum.ToString()}. Maksymalna liczba piłkarzy w drużynie: {PlayersMaxNum}. Spróbuj użyć metody ChangePlayer()");
+            }
             else
             {
-                status = true;
-                players[index].Name = name;
-                players[index].Number = num;
-                players[index].Position = pos;
+                players[playersActNum++] = pl;
             }
-
-            return status;
         }
 
-        public int findPlayer(string name, int num, bool numFind)
+        public void ChangePlayer(int index, Player pl)
         {
-            int playerIndex;
+            if (index >= playersActNum)
+            {
+                throw new Exception($"Podany indeks {index.ToString()} jest większy, niż indeks ostatniego piłkarza na liście {(playersActNum - 1).ToString()}");
+            }
+            else
+            {
+                players[index] = pl;
+            }
+
+        }
+
+        public int FindPlayer(string name, string surname, int num, bool numFind)
+        {
+            int playerIndex = 0;
             
-            for (playerIndex = 0; playerIndex < PlayersNumber; ++playerIndex)
-            {
-                if (numFind)
-                {
-                    if (players[playerIndex].Number == num)
-                        break;
-                }
-                else
-                {
-                    if (players[playerIndex].Name == name)
-                        break;
-                }
-            }
 
-            if (playerIndex >= PlayersNumber)
+            if (playerIndex >= PlayersMaxNum)
                 throw new Exception("Nie ma takiego zawodnika w tej reprezentacji.");
 
             return playerIndex;
