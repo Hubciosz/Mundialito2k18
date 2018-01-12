@@ -23,7 +23,12 @@ namespace Mundialito2k18
 
         public static int PlayersMaxNum => _playersMaxNum;
 
-        /*** KONSTRUKTORY ***/
+        /*
+         * Pierwszy konstruktor klasy:
+         *  country - nazwa kraju, reprezentowanego przez drużynę
+         *  flag - flaga państwa
+         *  coach (klasa Person) - menadżer drużyny
+         */
         public Team(string country, BitmapImage flag, Person coach)
         {
             _country = country;
@@ -32,6 +37,13 @@ namespace Mundialito2k18
             players = new Player[PlayersMaxNum];
         }
 
+        /*
+         * Drugi konstruktor klasy:
+         *  country - nazwa kraju, reprezentowanego przez drużynę
+         *  flag - flaga państwa
+         *  coach (klasa Person) - menadżer drużyny
+         *  pl (tablica Player) - tablica zawodników drużyny
+         */
         public Team(string country, BitmapImage flag, Person coach, Player [] pl)
         {
             _country = country;
@@ -54,6 +66,16 @@ namespace Mundialito2k18
             }
         }
 
+        /*
+         * Metoda dodająca gracza do drużyny:
+         *  pl (obiekt Player) - gracz do dodania
+         *  
+         *  Jej typowe użycie powinno mieć miejsce po wykorzystaniu pierwszego konstruktora, 
+         *  tworzączego pustą tablicę zawodników.
+         *  
+         *  Metoda zgłasza wyjątek, gdy zostały już zajęte wszystkie miejsca w drużynie,
+         *  warunkowane przez wartość PlayersMaxNum.
+         */
         public void AddPlayer(Player pl)
         {
             if(playersActNum >= PlayersMaxNum)
@@ -66,6 +88,16 @@ namespace Mundialito2k18
             }
         }
 
+        /*
+         * Metoda zmieniająca wybranego zawodnika w drużynie:
+         *  index - indeks zawodnika do usunięcia z drużyny
+         *  pl (obiekt Player) - zawodnik do wprowadzenia do drużyny
+         *  
+         * Jej typowe użycie powinno wykorzystywać metodę FindPlayer do uzyskania indeksu zawodnika usuwanego
+         * z drużyny.
+         * Metoda zgłasza wyjątek jeżeli podany indeks wychodzi poza zakres zawodników będących obecnie
+         * w drużynie, warunkowany przez playersActNum.
+         */
         public void ChangePlayer(int index, Player pl)
         {
             if (index >= playersActNum)
@@ -79,10 +111,30 @@ namespace Mundialito2k18
 
         }
 
-        public int FindPlayer(string name, string surname, int num, bool numFind)
+        /*
+         * Metoda wyszukująca danego gracza wśród zawodników drużyny:
+         *  name - imię gracza
+         *  surname - nazwisko gracza
+         *  num - numer gracza na koszulce
+         *  numFind - flaga wyboru sposobu poszukiwania zawodnika
+         *  
+         * Możliwe jest poszukiwanie zawodnika poprzez jego imię i nazwisko (numFind == false),
+         * bądź przez jego numer na koszulce (numFind == true). Metoda zwraca indeks znalezionego
+         * zawodnika. Jeżeli nie udało się go odszukać wśród graczy drużyny, zgłaszany jest wyjątek.
+         */ 
+        public int FindPlayer(string name, string surname, uint num, bool numFind)
         {
             int playerIndex = 0;
+            bool breakCond = false;
             
+            for(playerIndex = 0; playerIndex < playersActNum; ++playerIndex)
+            {
+                breakCond = numFind ? (players[playerIndex].Number == num) : (String.Equals(players[playerIndex].Name, name) && String.Equals(players[playerIndex].Surname, surname));
+                if (breakCond)
+                {
+                    break;
+                }
+            }
 
             if (playerIndex >= PlayersMaxNum)
                 throw new Exception("Nie ma takiego zawodnika w tej reprezentacji.");
