@@ -20,6 +20,11 @@ namespace Mundialito2k18
         public Group()
         {
             this.matches = new Match[matchesMaxNum];
+            for (int i = 0; i < matchesMaxNum; ++i)
+            {
+                matches[i] = new Match();
+            }
+
             this.teams = new Team[teamsMaxNum];
             for (int i = 0; i < teamsMaxNum; ++i)
             {
@@ -40,6 +45,25 @@ namespace Mundialito2k18
             for (ushort i = 0; i < teamsMaxNum; ++i)
             {
                 this.teams[i] = teams[i];
+            }
+        }
+
+        public Match GetMatch(int num)
+        {
+            return matches[num];
+        }
+
+        public void AddMatch(Match match)
+        {
+            if (matchesActNum < matchesMaxNum)
+            {
+                matches[matchesActNum].Host = match.Host;
+                matches[matchesActNum].Visitor = match.Visitor;
+                matches[matchesActNum].Date = match.Date;
+                matches[matchesActNum].Arbiter = match.Arbiter;
+                matches[matchesActNum].ScoreHost = match.ScoreHost;
+                matches[matchesActNum].ScoreVisitor = match.ScoreVisitor;
+                matches[matchesActNum].ID = match.ID;
             }
         }
 

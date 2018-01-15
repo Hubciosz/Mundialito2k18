@@ -8,8 +8,8 @@ namespace Mundialito2k18
 {
     class Match
     {
-        private Team host;              //Formalny gospodarz
-        private Team visitor;           //Formalny gość
+        private Team _host;              //Formalny gospodarz
+        private Team _visitor;           //Formalny gość
         private DateTime _date;         //Data spotkania
         private Referee _arbiter;       //Sędzia spotkania
 
@@ -17,6 +17,19 @@ namespace Mundialito2k18
         private uint _scoreVisitor;     //Bramki gości
 
         private uint _id;               //Numer identyfikujący spotkanie
+
+        public Match()
+        {
+            this.Host = new Team();
+            this.Visitor = new Team();
+            this.Date = new DateTime();
+            this.Arbiter = new Referee();
+
+            this.ScoreHost = 0;
+            this.ScoreVisitor = 0;
+
+            this.ID = 0;
+        }
         
         /* Pierwszy konstruktor klasy Match:
          *  host (obiekt Team) - zespół będący formalnym gospodarzem spotkania
@@ -27,13 +40,13 @@ namespace Mundialito2k18
          */
         public Match(Team host, Team visitor, DateTime date, Referee arbiter, uint id)
         {
-            this.host = host;
-            this.visitor = visitor;
+            this._host = host;
+            this._visitor = visitor;
             this.Date = date;
             this.Arbiter = arbiter;
          
-            ScoreHost = 0;
-            ScoreVisitor = 0;
+            this.ScoreHost = 0;
+            this.ScoreVisitor = 0;
 
             this.ID = id;
         }
@@ -44,8 +57,8 @@ namespace Mundialito2k18
          */
         public Match(Match match)
         {
-            this.host = match.host;
-            this.visitor = match.visitor;
+            this._host = match._host;
+            this._visitor = match._visitor;
             this.Date = match.Date;
             this.Arbiter = match.Arbiter;
 
@@ -55,8 +68,8 @@ namespace Mundialito2k18
             this.ID = match.ID;
         }
 
-        public Team Host {          get { return host; } }
-        public Team Visitor {       get { return visitor; } }
+        public Team Host {          get { return _host; }       set { _host = value; } }
+        public Team Visitor {       get { return _visitor; }    set { _visitor = value; } }
         public DateTime Date {      get { return _date; }       set { _date = value; } }
         public Referee Arbiter {    get { return _arbiter; }    set { _arbiter = value; } }
 
