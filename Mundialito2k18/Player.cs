@@ -14,8 +14,8 @@ namespace Mundialito2k18
         private Pos _position;      //Pozycja na boisku
         private string _club;       //Aktualny klub zawodnika
 
-        public uint Number { get => _number; set => _number = value; }
-        internal Pos Position { get => _position; set => _position = value; }
-        public string Club { get => _club; set => _club = value; }
+        public uint Number {    get { return _number; }     set { _number = value; } }
+        internal Pos Position { get { return _position; }   set { _position = value; } }
+        public string Club {    get { return _club; }       set { _club = value; } }
     }
 }

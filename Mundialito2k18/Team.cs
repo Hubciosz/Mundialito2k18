@@ -9,20 +9,37 @@ namespace Mundialito2k18
 {
     class Team
     {
+        public GroupStats GroupMatches;
+
         private string _country;        //Nazwa państwa
         private BitmapImage _flag;      //Obraz z miniaturką flagi
         private Person _coach;          //Trener
-        private Player[] players;      //Piłkarze
+        private Player[] players;       //Piłkarze
 
         private const int _playersMaxNum = 23;      //Maksymalna liczba piłkarzy w drużynie
         private int playersActNum;                  //Aktualna liczba piłkarzy w drużynie
 
-        public string Country { get => _country; }
-        public BitmapImage Flag { get => _flag; }
-        internal Person Coach { get => _coach; set => _coach = value; }
+        public string Country {     get { return _country; }    set { _country = value; } }
+        public BitmapImage Flag {   get { return _flag; }       set { _flag = value; } }
+        internal Person Coach {     get {return _coach;}        set { _coach = value;} }
 
-        public static int PlayersMaxNum => _playersMaxNum;
+        public static int PlayersMaxNum {get {return _playersMaxNum;}}
 
+        public Team()
+        {
+            this.Country = "N/A";
+            this.Flag = new BitmapImage();
+            this.Coach = new Person();
+            this.players = new Player[PlayersMaxNum];
+
+            GroupMatches = new GroupStats();
+            this.GroupMatches.MatchesWin = 0;
+            this.GroupMatches.MatchesDraw = 0;
+            this.GroupMatches.MatchesLose = 0;
+            this.GroupMatches.GoalsPlus = 0;
+            this.GroupMatches.GoalsMinus = 0;
+        }
+        
         /*
          * Pierwszy konstruktor klasy:
          *  country - nazwa kraju, reprezentowanego przez drużynę
@@ -31,9 +48,9 @@ namespace Mundialito2k18
          */
         public Team(string country, BitmapImage flag, Person coach)
         {
-            _country = country;
-            _flag = flag;
-            _coach = coach;
+            this.Country = country;
+            this.Flag = flag;
+            Coach = coach;
             players = new Player[PlayersMaxNum];
         }
 
@@ -46,14 +63,14 @@ namespace Mundialito2k18
          */
         public Team(string country, BitmapImage flag, Person coach, Player [] pl)
         {
-            _country = country;
-            _flag = flag;
-            _coach = coach;
+            this.Country = country;
+            this.Flag = flag;
+            Coach = coach;
             players = new Player[PlayersMaxNum];
 
             if (pl.Length > players.Length)
             {
-                throw new Exception($"Podano {pl.Length.ToString()} zawodników. Maksymalna liczba zawodników w drużynie to {PlayersMaxNum.ToString()}.");
+                throw new Exception("Podano "+ pl.Length.ToString() +" zawodników. Maksymalna liczba zawodników w drużynie to"+ PlayersMaxNum.ToString() +".");
             }
             else
             {
@@ -63,6 +80,18 @@ namespace Mundialito2k18
                     players[i] = pl[i];
                 }
                 playersActNum = i;
+            }
+        }
+
+        public Team(Team team)
+        {
+            this.Country = team.Country;
+            this.Flag = team.Flag;
+            this.Coach = team.Coach;
+            this.players = new Player[PlayersMaxNum];
+            for (int i = 0; i < PlayersMaxNum; ++i)
+            {
+                this.players[i] = team.players[i];
             }
         }
 
@@ -80,7 +109,7 @@ namespace Mundialito2k18
         {
             if(playersActNum >= PlayersMaxNum)
             {
-                throw new Exception($"Aktualna liczba piłkarzy w drużynie: {playersActNum.ToString()}. Maksymalna liczba piłkarzy w drużynie: {PlayersMaxNum}. Spróbuj użyć metody ChangePlayer()");
+                throw new Exception("Aktualna liczba piłkarzy w drużynie:"+ playersActNum.ToString() +". Maksymalna liczba piłkarzy w drużynie:"+ PlayersMaxNum +". Spróbuj użyć metody ChangePlayer()");
             }
             else
             {
@@ -102,7 +131,7 @@ namespace Mundialito2k18
         {
             if (index >= playersActNum)
             {
-                throw new Exception($"Podany indeks {index.ToString()} jest większy, niż indeks ostatniego piłkarza na liście {(playersActNum - 1).ToString()}");
+                throw new Exception("Podany indeks"+ index.ToString() +" jest większy, niż indeks ostatniego piłkarza na liście:"+ (playersActNum - 1).ToString() +".");
             }
             else
             {
@@ -140,6 +169,21 @@ namespace Mundialito2k18
                 throw new Exception("Nie ma takiego zawodnika w tej reprezentacji.");
 
             return playerIndex;
+        }
+
+        public void CopyPlayers(Team team)
+        {
+            for (int i = 0; i < team.playersActNum; ++i)
+            {
+                players[i].Name = team.players[i].Name;
+                players[i].Surname = team.players[i].Surname;
+                players[i].Age = team.players[i].Age;
+                players[i].Nationality = team.players[i].Nationality;
+
+                players[i].Number = team.players[i].Number;
+                players[i].Position = team.players[i].Position;
+                players[i].Club = team.players[i].Club;
+            }
         }
     }
 }

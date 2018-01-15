@@ -23,159 +23,21 @@ namespace Mundialito2k18
     /// </summary>
     public partial class MainWindow : Window
     {        
-        Team[] grA = new Team[4];
-
         public MainWindow()
         {
-            string[] allTeams = File.ReadAllLines(@"./data/teams.dat");
-            for (int i = 0; i < allTeams.Length; ++i)
-            {
-                //grA[i] = new Team();
-                //grA[i].Name = allTeams[i];
-                //grA[i].Flag = new BitmapImage(new Uri(@"pack://application:,,,/images/" + grA[i].Name + ".png"));
-                //string[] teamData = File.ReadAllLines(@"./data/Teams/" + grA[i].Name + ".dat");
-                //for (int j = 0; j < (grA[i].PlayersMaxNum + 1); ++j)
-                //{
-                //    if (j == 0)
-                //        grA[i].Coach = teamData[j];
-                //    else
-                //    {
-                //        grA[i].AddPlayer(teamData[j], j-1, Player.Pos.GK);
-                //    }
-                //}
-            }
-
             InitializeComponent();
-            InitializeContent();
         }
 
-        private void InitializeContent()
+        private void lblGrA_Click(object sender, RoutedEventArgs e)
         {
-            ChangeRowData(1, grA[0], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-            ChangeRowData(2, grA[1], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-            ChangeRowData(3, grA[2], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-            ChangeRowData(4, grA[3], 0, 0, 0, 0, 0, 0, 0, ChangeMask.All);
-
+            WindowGrA GrA = new WindowGrA();
+            GrA.Show();
+            this.Close();
         }
 
-        private void ChangeRowBackground(int row, Brush newColor)
+        private void lblExit_Click(object sender, RoutedEventArgs e)
         {
-            /*
-             * Zielony:     SeaGreen
-             * Czerwony:    IndianRed
-             */
-
-            switch (row)
-            {
-                case 1:
-                    brdrPos1.Background     = newColor;
-                    brdrTeam1.Background    = newColor;
-                    brdrFlag1.Background    = newColor;
-                    brdrPKT1.Background     = newColor;
-                    brdrM1.Background       = newColor;
-                    brdrW1.Background       = newColor;
-                    brdrR1.Background       = newColor;
-                    brdrP1.Background       = newColor;
-                    brdrBplus1.Background   = newColor;
-                    brdrBminus1.Background  = newColor;
-                    break;
-
-                case 2:
-                    brdrPos2.Background     = newColor;
-                    brdrTeam2.Background    = newColor;
-                    brdrFlag2.Background    = newColor;
-                    brdrPKT2.Background     = newColor;
-                    brdrM2.Background       = newColor;
-                    brdrW2.Background       = newColor;
-                    brdrR2.Background       = newColor;
-                    brdrP2.Background       = newColor;
-                    brdrBplus2.Background   = newColor;
-                    brdrBminus2.Background  = newColor;
-                    break;
-
-                case 3:
-                    brdrPos3.Background     = newColor;
-                    brdrTeam3.Background    = newColor;
-                    brdrFlag3.Background    = newColor;
-                    brdrPKT3.Background     = newColor;
-                    brdrM3.Background       = newColor;
-                    brdrW3.Background       = newColor;
-                    brdrR3.Background       = newColor;
-                    brdrP3.Background       = newColor;
-                    brdrBplus3.Background   = newColor;
-                    brdrBminus3.Background  = newColor;
-                    break;
-
-                case 4:
-                    brdrPos4.Background     = newColor;
-                    brdrTeam4.Background    = newColor;
-                    brdrFlag4.Background    = newColor;
-                    brdrPKT4.Background     = newColor;
-                    brdrM4.Background       = newColor;
-                    brdrW4.Background       = newColor;
-                    brdrR4.Background       = newColor;
-                    brdrP4.Background       = newColor;
-                    brdrBplus4.Background   = newColor;
-                    brdrBminus4.Background  = newColor;
-                    break;
-
-                default:
-                    throw new Exception("Nieprawidłowy numer wiersza. Dostępna liczba wierszy: 1-4");
-            }
-        }
-
-        [Flags]
-        private enum ChangeMask //Implementacja maski bitowej do określenia co należy zmienić w wierszu
-        {
-            None    = 0,
-            Team    = 1,
-            PKT     = 2,
-            M       = 4,
-            W       = 8,
-            R       = 16,
-            P       = 32,
-            Bplus   = 64,
-            Bminus  = 128,
-            All     = 256
-        }
-
-        private void ChangeRowData(int row, Team Tm, int PKT, int M, int W, int R, int P, int Bplus, int Bminus, ChangeMask mask)
-        {
-            switch (row)
-            {
-                case 1:
-                    lblTeam1.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Country           : lblTeam1.Content;
-                    lblPKT1.Content     = (((mask & ChangeMask.PKT) != ChangeMask.None)     || ((mask & ChangeMask.All) != ChangeMask.None)) ? PKT.ToString()       : lblPKT1.Content;
-                    lblM1.Content       = (((mask & ChangeMask.M) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? M.ToString()         : lblM1.Content;
-                    lblW1.Content       = (((mask & ChangeMask.W) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? W.ToString()         : lblW1.Content;
-                    lblR1.Content       = (((mask & ChangeMask.R) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? R.ToString()         : lblR1.Content;
-                    lblP1.Content       = (((mask & ChangeMask.P) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? P.ToString()         : lblP1.Content;
-                    lblBplus1.Content   = (((mask & ChangeMask.Bplus) != ChangeMask.None)   || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bplus.ToString()     : lblBplus1.Content;
-                    lblBminus1.Content  = (((mask & ChangeMask.Bminus) != ChangeMask.None)  || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bminus.ToString()    : lblBminus1.Content;
-
-                    if(((mask & ChangeMask.Team) != ChangeMask.None) || ((mask & ChangeMask.All) != ChangeMask.None))
-                    {
-                        imgFlag1.Source = Tm.Flag;
-                    }
-                    break;
-
-                case 2:
-                    lblTeam2.Content    = (((mask & ChangeMask.Team) != ChangeMask.None)    || ((mask & ChangeMask.All) != ChangeMask.None)) ? Tm.Country           : lblTeam2.Content;
-                    lblPKT2.Content     = (((mask & ChangeMask.PKT) != ChangeMask.None)     || ((mask & ChangeMask.All) != ChangeMask.None)) ? PKT.ToString()       : lblPKT2.Content;
-                    lblM2.Content       = (((mask & ChangeMask.M) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? M.ToString()         : lblM2.Content;
-                    lblW2.Content       = (((mask & ChangeMask.W) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? W.ToString()         : lblW2.Content;
-                    lblR2.Content       = (((mask & ChangeMask.R) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? R.ToString()         : lblR2.Content;
-                    lblP2.Content       = (((mask & ChangeMask.P) != ChangeMask.None)       || ((mask & ChangeMask.All) != ChangeMask.None)) ? P.ToString()         : lblP2.Content;
-                    lblBplus2.Content   = (((mask & ChangeMask.Bplus) != ChangeMask.None)   || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bplus.ToString()     : lblBplus2.Content;
-                    lblBminus2.Content  = (((mask & ChangeMask.Bminus) != ChangeMask.None)  || ((mask & ChangeMask.All) != ChangeMask.None)) ? Bminus.ToString()    : lblBminus2.Content;
-
-                    if (((mask & ChangeMask.Team) != ChangeMask.None) || ((mask & ChangeMask.All) != ChangeMask.None))
-                    {
-                        imgFlag2.Source = Tm.Flag;
-                    }
-                    break;
-            }
-
+            Application.Current.Shutdown();
         }
     }
 }
