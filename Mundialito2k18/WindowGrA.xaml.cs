@@ -53,6 +53,18 @@ namespace Mundialito2k18
             {
                 ChangeRowData(i+1, i);
             }
+
+            lblMatch1Host.Content = GroupA.GetTeam(0).Country;
+            imgMatch1HostFlag.Source = GroupA.GetTeam(0).Flag;
+
+            lblMatch2Host.Content = GroupA.GetTeam(1).Country;
+            imgMatch2HostFlag.Source = GroupA.GetTeam(1).Flag;
+
+            lblMatch1Visitor.Content = GroupA.GetTeam(2).Country;
+            imgMatch1VisitorFlag.Source = GroupA.GetTeam(2).Flag;
+
+            lblMatch2Visitor.Content = GroupA.GetTeam(3).Country;
+            imgMatch2VisitorFlag.Source = GroupA.GetTeam(3).Flag;
         }
 
         private void ChangeRowBackground(int row, Brush newColor)
@@ -179,10 +191,8 @@ namespace Mundialito2k18
             }
         }
 
-        private void lblBack_Click(object sender, RoutedEventArgs e)
+        private void menuBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow WinMain = new MainWindow();
-            WinMain.Show();
             this.Close();
         }
     }

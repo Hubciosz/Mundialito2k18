@@ -22,7 +22,9 @@ namespace Mundialito2k18
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {        
+    {
+        private WindowGrA GrA = new WindowGrA(); 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,14 +32,25 @@ namespace Mundialito2k18
 
         private void lblGrA_Click(object sender, RoutedEventArgs e)
         {
-            WindowGrA GrA = new WindowGrA();
-            GrA.Show();
-            this.Close();
+            if (!(GrA.IsLoaded))
+            {
+                GrA = new WindowGrA();
+                GrA.Show();
+            }
         }
 
         private void lblExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void menuGrupaA_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(GrA.IsLoaded))
+            {
+                GrA = new WindowGrA();
+                GrA.Show();
+            }
         }
     }
 }
