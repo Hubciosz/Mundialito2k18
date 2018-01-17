@@ -84,7 +84,7 @@
             <Image x:Name="imgMatch1VisitorFlag" Grid.Column="8" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Stretch="Fill" />
             <Image x:Name="imgMatch2VisitorFlag" Grid.Column="8" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Top" Stretch="Fill" />
         </Grid>
-        <Grid x:Name="GridGroupTable" Margin="10,200,0,0" Width="460" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid x:Name="GridGroupTable" Margin="10,200,0,0" Width="490" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
@@ -103,6 +103,7 @@
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" Grid.Row="0" Background="Silver" />
             <Border Grid.Column="1" Grid.Row="0" Background="Silver" />
@@ -114,6 +115,7 @@
             <Border Grid.Column="7" Grid.Row="0" Background="Silver" />
             <Border Grid.Column="8" Grid.Row="0" Background="Silver" />
             <Border Grid.Column="9" Grid.Row="0" Background="Silver" />
+            <Border Grid.Column="10" Grid.Row="0" Background="Silver" />
 
             <Border x:Name="brdrPos1"       Grid.Column="0" Grid.Row="1" Background="AntiqueWhite" />
             <Border x:Name="brdrTeam1"      Grid.Column="1" Grid.Row="1" Background="AntiqueWhite" />
@@ -125,6 +127,7 @@
             <Border x:Name="brdrP1"         Grid.Column="7" Grid.Row="1" Background="AntiqueWhite" />
             <Border x:Name="brdrBplus1"     Grid.Column="8" Grid.Row="1" Background="AntiqueWhite" />
             <Border x:Name="brdrBminus1"    Grid.Column="9" Grid.Row="1" Background="AntiqueWhite" />
+            <Border x:Name="brdrBdiff1"    Grid.Column="10" Grid.Row="1" Background="AntiqueWhite" />
 
             <Border x:Name="brdrPos2"       Grid.Column="0" Grid.Row="2" Background="AntiqueWhite" />
             <Border x:Name="brdrTeam2"      Grid.Column="1" Grid.Row="2" Background="AntiqueWhite" />
@@ -136,6 +139,7 @@
             <Border x:Name="brdrP2"         Grid.Column="7" Grid.Row="2" Background="AntiqueWhite" />
             <Border x:Name="brdrBplus2"     Grid.Column="8" Grid.Row="2" Background="AntiqueWhite" />
             <Border x:Name="brdrBminus2"    Grid.Column="9" Grid.Row="2" Background="AntiqueWhite" />
+            <Border x:Name="brdrBdiff2"    Grid.Column="10" Grid.Row="2" Background="AntiqueWhite" />
 
             <Border x:Name="brdrPos3"       Grid.Column="0" Grid.Row="3" Background="AntiqueWhite" />
             <Border x:Name="brdrTeam3"      Grid.Column="1" Grid.Row="3" Background="AntiqueWhite" />
@@ -147,6 +151,7 @@
             <Border x:Name="brdrP3"         Grid.Column="7" Grid.Row="3" Background="AntiqueWhite" />
             <Border x:Name="brdrBplus3"     Grid.Column="8" Grid.Row="3" Background="AntiqueWhite" />
             <Border x:Name="brdrBminus3"    Grid.Column="9" Grid.Row="3" Background="AntiqueWhite" />
+            <Border x:Name="brdrBdiff3"    Grid.Column="10" Grid.Row="3" Background="AntiqueWhite" />
 
             <Border x:Name="brdrPos4"       Grid.Column="0" Grid.Row="4" Background="AntiqueWhite" />
             <Border x:Name="brdrTeam4"      Grid.Column="1" Grid.Row="4" Background="AntiqueWhite" />
@@ -158,6 +163,7 @@
             <Border x:Name="brdrP4"         Grid.Column="7" Grid.Row="4" Background="AntiqueWhite" />
             <Border x:Name="brdrBplus4"     Grid.Column="8" Grid.Row="4" Background="AntiqueWhite" />
             <Border x:Name="brdrBminus4"    Grid.Column="9" Grid.Row="4" Background="AntiqueWhite" />
+            <Border x:Name="brdrBdiff4"    Grid.Column="10" Grid.Row="4" Background="AntiqueWhite" />
 
             <Label x:Name="lblPosHead" Content="L.p." Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblPos1" Content="1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
@@ -218,6 +224,11 @@
             <Label x:Name="lblBminus3"    Content=""        Grid.Column="9" Grid.Row="3" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
             <Label x:Name="lblBminus4"    Content=""        Grid.Column="9" Grid.Row="4" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
 
+            <Label x:Name="lblBdiffHead" Content="+/-"      Grid.Column="10" Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblBdiff1"    Content=""         Grid.Column="10" Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblBdiff2"    Content=""         Grid.Column="10" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblBdiff3"    Content=""         Grid.Column="10" Grid.Row="3" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
+            <Label x:Name="lblBdiff4"    Content=""         Grid.Column="10" Grid.Row="4" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="12"/>
         </Grid>
         <!-- Obramowanie tabela meczów -->
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="10,30,0,0" VerticalAlignment="Top" Width="30"/>
@@ -303,5 +314,11 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="440,260,0,0" VerticalAlignment="Top" Width="31"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="440,290,0,0" VerticalAlignment="Top" Width="31"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="440,320,0,0" VerticalAlignment="Top" Width="31"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="470,200,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="470,230,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="470,260,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="31" Margin="470,290,0,0" VerticalAlignment="Top" Width="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="30" Margin="470,320,0,0" VerticalAlignment="Top" Width="30"/>
     </Grid>
 </Window>

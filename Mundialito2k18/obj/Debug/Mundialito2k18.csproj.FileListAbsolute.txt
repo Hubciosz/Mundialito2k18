@@ -27,3 +27,5 @@ D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\
 C:\Users\jjhz24\Documents\Visual Studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\Mundialito2k18.csprojResolveAssemblyReference.cache
 C:\Users\jjhz24\Documents\Visual Studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\WindowGrA.baml
 C:\Users\jjhz24\Documents\Visual Studio 2012\Projects\Mundialito2k18\Mundialito2k18\obj\Debug\WindowGrA.g.cs
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\WindowGrA.baml
+D:\Hubert\Zabawy programistyczne\GitHub\Mundialito2k18\Mundialito2k18\obj\Debug\WindowGrA.g.cs

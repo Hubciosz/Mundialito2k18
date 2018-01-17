@@ -22,7 +22,6 @@ namespace Mundialito2k18
     public partial class WindowGrA : Window
     {
         private Group GroupA;
-        private bool InitialValues;
 
         public WindowGrA()
         {
@@ -69,19 +68,17 @@ namespace Mundialito2k18
             //GroupA.GetTeam(2).GroupMatches.MatchesLose = 1;
 
             //GroupA.GetTeam(3).GroupMatches.MatchesLose = 2;
-            InitialValues = true;
 
             for (int i = 0; i < 4; ++i)
             {
-                ChangeRowData(i+1, i);
+                ChangeRowData(i+1, i, false);
             }
 
             for (int i = 0; i < 2; ++i)
             {
-                ChangeMatchData(i + 1, i);
+                ChangeMatchData(i + 1, i, false);
             }
 
-            InitialValues = false;
             //lblMatch1Date.Content = (new DateTime(2018, 06, 18, 17, 00, 00)).ToString("f");
             //lblMatch1Host.Content = GroupA.GetTeam(0).Country;
             //imgMatch1HostFlag.Source = GroupA.GetTeam(0).Flag;
@@ -117,6 +114,7 @@ namespace Mundialito2k18
                     brdrP1.Background = newColor;
                     brdrBplus1.Background = newColor;
                     brdrBminus1.Background = newColor;
+                    brdrBdiff1.Background = newColor;
                     break;
 
                 case 2:
@@ -130,6 +128,7 @@ namespace Mundialito2k18
                     brdrP2.Background = newColor;
                     brdrBplus2.Background = newColor;
                     brdrBminus2.Background = newColor;
+                    brdrBdiff2.Background = newColor;
                     break;
 
                 case 3:
@@ -143,6 +142,7 @@ namespace Mundialito2k18
                     brdrP3.Background = newColor;
                     brdrBplus3.Background = newColor;
                     brdrBminus3.Background = newColor;
+                    brdrBdiff3.Background = newColor;
                     break;
 
                 case 4:
@@ -156,6 +156,7 @@ namespace Mundialito2k18
                     brdrP4.Background = newColor;
                     brdrBplus4.Background = newColor;
                     brdrBminus4.Background = newColor;
+                    brdrBdiff4.Background = newColor;
                     break;
 
                 default:
@@ -163,56 +164,60 @@ namespace Mundialito2k18
             }
         }
 
-        private void ChangeRowData(int row, int numTeam)
+        private void ChangeRowData(int row, int numTeam, bool fullMode)
         {
             switch (row)
             {
                 case 1:
                     lblTeam1.Content = GroupA.GetTeam(numTeam).Country;
                     imgFlag1.Source = GroupA.GetTeam(numTeam).Flag;
-                    lblPKT1.Content = GroupA.GetTeam(numTeam).GroupMatches.Points.ToString();
-                    lblM1.Content = GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString();
-                    lblW1.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString();
-                    lblR1.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString();
-                    lblP1.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString();
-                    lblBplus1.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString();
-                    lblBminus1.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString();
+                    lblPKT1.Content =   fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Points.ToString() : 0.ToString();
+                    lblM1.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString() : 0.ToString();
+                    lblW1.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString() : 0.ToString();
+                    lblR1.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString() : 0.ToString();
+                    lblP1.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString() : 0.ToString();
+                    lblBplus1.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString() : 0.ToString();
+                    lblBminus1.Content= fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString() : 0.ToString();
+                    lblBdiff1.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsDiff.ToString() : 0.ToString();
                     break;
 
                 case 2:
                     lblTeam2.Content = GroupA.GetTeam(numTeam).Country;
                     imgFlag2.Source = GroupA.GetTeam(numTeam).Flag;
-                    lblPKT2.Content = GroupA.GetTeam(numTeam).GroupMatches.Points.ToString();
-                    lblM2.Content = GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString();
-                    lblW2.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString();
-                    lblR2.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString();
-                    lblP2.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString();
-                    lblBplus2.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString();
-                    lblBminus2.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString();
+                    lblPKT2.Content =   fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Points.ToString() : 0.ToString();
+                    lblM2.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString() : 0.ToString();
+                    lblW2.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString() : 0.ToString();
+                    lblR2.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString() : 0.ToString();
+                    lblP2.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString() : 0.ToString();
+                    lblBplus2.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString() : 0.ToString();
+                    lblBminus2.Content= fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString() : 0.ToString();
+                    lblBdiff2.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsDiff.ToString() : 0.ToString();
                     break;
 
                 case 3:
                     lblTeam3.Content = GroupA.GetTeam(numTeam).Country;
                     imgFlag3.Source = GroupA.GetTeam(numTeam).Flag;
-                    lblPKT3.Content = GroupA.GetTeam(numTeam).GroupMatches.Points.ToString();
-                    lblM3.Content = GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString();
-                    lblW3.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString();
-                    lblR3.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString();
-                    lblP3.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString();
-                    lblBplus3.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString();
-                    lblBminus3.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString();
+                    lblPKT3.Content =   fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Points.ToString() : 0.ToString();
+                    lblM3.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString() : 0.ToString();
+                    lblW3.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString() : 0.ToString();
+                    lblR3.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString() : 0.ToString();
+                    lblP3.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString() : 0.ToString();
+                    lblBplus3.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString() : 0.ToString();
+                    lblBminus3.Content= fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString() : 0.ToString();
+                    lblBdiff3.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsDiff.ToString() : 0.ToString();
                     break;
 
                 case 4:
                     lblTeam4.Content = GroupA.GetTeam(numTeam).Country;
                     imgFlag4.Source = GroupA.GetTeam(numTeam).Flag;
-                    lblPKT4.Content = GroupA.GetTeam(numTeam).GroupMatches.Points.ToString();
-                    lblM4.Content = GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString();
-                    lblW4.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString();
-                    lblR4.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString();
-                    lblP4.Content = GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString();
-                    lblBplus4.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString();
-                    lblBminus4.Content = GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString();
+                    lblPKT4.Content =   fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Points.ToString() : 0.ToString();
+                    lblM4.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.Matches.ToString() : 0.ToString();
+                    lblW4.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesWin.ToString() : 0.ToString();
+                    lblR4.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesDraw.ToString() : 0.ToString();
+                    lblP4.Content =     fullMode ? GroupA.GetTeam(numTeam).GroupMatches.MatchesLose.ToString() : 0.ToString();
+                    lblBplus4.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsPlus.ToString() : 0.ToString();
+                    lblBminus4.Content= fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsMinus.ToString() : 0.ToString();
+                    lblBdiff4.Content = fullMode ? GroupA.GetTeam(numTeam).GroupMatches.GoalsDiff.ToString() : 0.ToString();
                     break;
 
                 default:
@@ -221,7 +226,7 @@ namespace Mundialito2k18
             }
         }
 
-        private void ChangeMatchData(int row, int numMatch)
+        private void ChangeMatchData(int row, int numMatch, bool fullMode)
         {
             switch (row)
             {
@@ -231,9 +236,10 @@ namespace Mundialito2k18
                     
                     imgMatch1HostFlag.Source = GroupA.GetMatch(numMatch).Host.Flag;
                     lblMatch1Host.Content = GroupA.GetMatch(numMatch).Host.Country.ToString();
-                    txtMatch1Host.Text = GroupA.GetMatch(numMatch).ScoreHost.ToString();
-                    
-                    txtMatch1Visitor.Text = GroupA.GetMatch(numMatch).ScoreVisitor.ToString();
+
+                    txtMatch1Host.Text =    fullMode ? GroupA.GetMatch(numMatch).ScoreHost.ToString() : "";
+                    txtMatch1Visitor.Text = fullMode ? GroupA.GetMatch(numMatch).ScoreVisitor.ToString() : "";
+
                     lblMatch1Visitor.Content = GroupA.GetMatch(numMatch).Visitor.Country.ToString();
                     imgMatch1VisitorFlag.Source = GroupA.GetMatch(numMatch).Visitor.Flag;
                     break;
@@ -244,9 +250,10 @@ namespace Mundialito2k18
 
                     imgMatch2HostFlag.Source = GroupA.GetMatch(numMatch).Host.Flag;
                     lblMatch2Host.Content = GroupA.GetMatch(numMatch).Host.Country.ToString();
-                    txtMatch2Host.Text = GroupA.GetMatch(numMatch).ScoreHost.ToString();
 
-                    txtMatch2Visitor.Text = GroupA.GetMatch(numMatch).ScoreVisitor.ToString();
+                    txtMatch2Host.Text =    fullMode ? GroupA.GetMatch(numMatch).ScoreHost.ToString() : "";
+                    txtMatch2Visitor.Text = fullMode ? GroupA.GetMatch(numMatch).ScoreVisitor.ToString() : "";
+
                     lblMatch2Visitor.Content = GroupA.GetMatch(numMatch).Visitor.Country.ToString();
                     imgMatch2VisitorFlag.Source = GroupA.GetMatch(numMatch).Visitor.Flag;
                     break;
@@ -288,28 +295,20 @@ namespace Mundialito2k18
                     uint.TryParse(txtMatch1Visitor.Text.ToString(), out visitorLocalScore);
                     GroupA.GetMatch(numMatch).ScoreHost = hostLocalScore;
                     GroupA.GetMatch(numMatch).ScoreVisitor = visitorLocalScore;
+                    ChangeRowData(1, FindTeam(GroupA.GetMatch(numMatch).Host.Country), hostLocalScore != default(uint));
+                    ChangeRowData(2, FindTeam(GroupA.GetMatch(numMatch).Visitor.Country), visitorLocalScore != default(uint));
                     break;
             }
-            
-            
-            ChangeRowData(1, FindTeam("Rosja"));
-            ChangeRowData(2, FindTeam("Arabia Saudyjska"));
         }
 
         private void txtMatch1Host_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!InitialValues)
-            {
-                ScoreChanged(0);
-            }
+            ScoreChanged(0);
         }
         
         private void txtMatch1Visitor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!InitialValues)
-            {
-                ScoreChanged(0);
-            }
+            ScoreChanged(0);
         }
     }
 }
