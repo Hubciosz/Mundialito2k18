@@ -22,6 +22,7 @@ namespace Mundialito2k18
     public partial class WindowGrA : Window
     {
         private Group GroupA;
+        private bool InitialValues;
 
         public WindowGrA()
         {
@@ -31,40 +32,69 @@ namespace Mundialito2k18
 
         private void InitializeContent()
         {
-            string[] allTeams = File.ReadAllLines(@"./data/teamsA.dat");
-            Match[] matches = new Match[6];
+            Match match = new Match();
             Team team = new Team();
             GroupA = new Group();
+            
+            string[] allTeams = File.ReadAllLines(@"./data/A/teams.dat");
+            string[] cm;
             foreach (string tm in allTeams)
             {
                 team = new Team(tm, new BitmapImage(new Uri(@"pack://application:,,,/images/" + tm + ".png")), new Person());
                 GroupA.AddTeam(team);
             }
-            GroupA.GetTeam(0).GroupMatches.MatchesWin = 2;
 
-            GroupA.GetTeam(1).GroupMatches.MatchesWin = 1;
-            GroupA.GetTeam(1).GroupMatches.MatchesDraw = 1;
+            string[] allMatches = File.ReadAllLines(@"./data/A/matches.dat");
+            foreach (string mt in allMatches)
+            {
+                cm = mt.Split('|');
+                FindTeam(cm[7]);
+                match = new Match(  GroupA.GetTeam(FindTeam(cm[7])),    
+                                    GroupA.GetTeam(FindTeam(cm[8])),    
+                                    new DateTime(2018, Convert.ToInt32(cm[4]), Convert.ToInt32(cm[3]), Convert.ToInt32(cm[5]), Convert.ToInt32(cm[6]), 00),
+                                    new Referee(),
+                                    Convert.ToUInt32(cm[0]),
+                                    Convert.ToUInt32(cm[1]),
+                                    Convert.ToUInt32(cm[2])  );
+                GroupA.AddMatch(match);
+            }
+
+            //GroupA.GetMatch(0).ScoreHost = 1;
+            //GroupA.GetTeam(0).GroupMatches.MatchesWin = 2;
+
+            //GroupA.GetTeam(1).GroupMatches.MatchesWin = 1;
+            //GroupA.GetTeam(1).GroupMatches.MatchesDraw = 1;
             
-            GroupA.GetTeam(2).GroupMatches.MatchesDraw = 1;
-            GroupA.GetTeam(2).GroupMatches.MatchesLose = 1;
+            //GroupA.GetTeam(2).GroupMatches.MatchesDraw = 1;
+            //GroupA.GetTeam(2).GroupMatches.MatchesLose = 1;
 
-            GroupA.GetTeam(3).GroupMatches.MatchesLose = 2;
+            //GroupA.GetTeam(3).GroupMatches.MatchesLose = 2;
+            InitialValues = true;
+
             for (int i = 0; i < 4; ++i)
             {
                 ChangeRowData(i+1, i);
             }
 
-            lblMatch1Host.Content = GroupA.GetTeam(0).Country;
-            imgMatch1HostFlag.Source = GroupA.GetTeam(0).Flag;
+            for (int i = 0; i < 2; ++i)
+            {
+                ChangeMatchData(i + 1, i);
+            }
 
-            lblMatch2Host.Content = GroupA.GetTeam(1).Country;
-            imgMatch2HostFlag.Source = GroupA.GetTeam(1).Flag;
+            InitialValues = false;
+            //lblMatch1Date.Content = (new DateTime(2018, 06, 18, 17, 00, 00)).ToString("f");
+            //lblMatch1Host.Content = GroupA.GetTeam(0).Country;
+            //imgMatch1HostFlag.Source = GroupA.GetTeam(0).Flag;
 
-            lblMatch1Visitor.Content = GroupA.GetTeam(2).Country;
-            imgMatch1VisitorFlag.Source = GroupA.GetTeam(2).Flag;
+            //lblMatch1Visitor.Content = GroupA.GetTeam(2).Country;
+            //imgMatch1VisitorFlag.Source = GroupA.GetTeam(2).Flag;
 
-            lblMatch2Visitor.Content = GroupA.GetTeam(3).Country;
-            imgMatch2VisitorFlag.Source = GroupA.GetTeam(3).Flag;
+            //lblMatch2Date.Content = (new DateTime(2018, 06, 19, 21, 00, 00)).ToString("f");
+            //lblMatch2Host.Content = GroupA.GetTeam(1).Country;
+            //imgMatch2HostFlag.Source = GroupA.GetTeam(1).Flag;
+
+            //lblMatch2Visitor.Content = GroupA.GetTeam(3).Country;
+            //imgMatch2VisitorFlag.Source = GroupA.GetTeam(3).Flag;
         }
 
         private void ChangeRowBackground(int row, Brush newColor)
@@ -191,9 +221,95 @@ namespace Mundialito2k18
             }
         }
 
+        private void ChangeMatchData(int row, int numMatch)
+        {
+            switch (row)
+            {
+                case 1:
+                    lblMatch1Nr.Content = GroupA.GetMatch(numMatch).ID.ToString();
+                    lblMatch1Date.Content = GroupA.GetMatch(numMatch).Date.ToString("f");
+                    
+                    imgMatch1HostFlag.Source = GroupA.GetMatch(numMatch).Host.Flag;
+                    lblMatch1Host.Content = GroupA.GetMatch(numMatch).Host.Country.ToString();
+                    txtMatch1Host.Text = GroupA.GetMatch(numMatch).ScoreHost.ToString();
+                    
+                    txtMatch1Visitor.Text = GroupA.GetMatch(numMatch).ScoreVisitor.ToString();
+                    lblMatch1Visitor.Content = GroupA.GetMatch(numMatch).Visitor.Country.ToString();
+                    imgMatch1VisitorFlag.Source = GroupA.GetMatch(numMatch).Visitor.Flag;
+                    break;
+
+                case 2:
+                    lblMatch2Nr.Content = GroupA.GetMatch(numMatch).ID.ToString();
+                    lblMatch2Date.Content = GroupA.GetMatch(numMatch).Date.ToString("f");
+
+                    imgMatch2HostFlag.Source = GroupA.GetMatch(numMatch).Host.Flag;
+                    lblMatch2Host.Content = GroupA.GetMatch(numMatch).Host.Country.ToString();
+                    txtMatch2Host.Text = GroupA.GetMatch(numMatch).ScoreHost.ToString();
+
+                    txtMatch2Visitor.Text = GroupA.GetMatch(numMatch).ScoreVisitor.ToString();
+                    lblMatch2Visitor.Content = GroupA.GetMatch(numMatch).Visitor.Country.ToString();
+                    imgMatch2VisitorFlag.Source = GroupA.GetMatch(numMatch).Visitor.Flag;
+                    break;
+
+                    //Pozostałe przypadki do dopisania po wprowadzeniu kolejnych tabelek w XAML-u
+                default:
+                    throw new Exception("Nieprawidłowy numer wiersza. Dostępna liczba wierszy: 1-6");
+            }
+        }
+
+        private int FindTeam(string teamCountry)
+        {
+            int i;
+            for (i = 0; i < 4; ++i)
+            {
+                if (String.Compare(GroupA.GetTeam(i).Country, teamCountry) == 0)
+                {
+                    break;
+                }
+            }
+
+            return i;
+        }
+
         private void menuBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ScoreChanged(int numMatch)
+        {
+            uint hostLocalScore;
+            uint visitorLocalScore;
+
+            switch (numMatch)
+            {
+                case 0:
+                    uint.TryParse(txtMatch1Host.Text.ToString(), out hostLocalScore);
+                    uint.TryParse(txtMatch1Visitor.Text.ToString(), out visitorLocalScore);
+                    GroupA.GetMatch(numMatch).ScoreHost = hostLocalScore;
+                    GroupA.GetMatch(numMatch).ScoreVisitor = visitorLocalScore;
+                    break;
+            }
+            
+            
+            ChangeRowData(1, FindTeam("Rosja"));
+            ChangeRowData(2, FindTeam("Arabia Saudyjska"));
+        }
+
+        private void txtMatch1Host_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!InitialValues)
+            {
+                ScoreChanged(0);
+            }
+        }
+        
+        private void txtMatch1Visitor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!InitialValues)
+            {
+                ScoreChanged(0);
+            }
         }
     }
 }

@@ -64,6 +64,7 @@ namespace Mundialito2k18
                 matches[matchesActNum].ScoreHost = match.ScoreHost;
                 matches[matchesActNum].ScoreVisitor = match.ScoreVisitor;
                 matches[matchesActNum].ID = match.ID;
+                matchesActNum++;
             }
         }
 
